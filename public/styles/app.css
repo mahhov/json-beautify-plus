@@ -1,0 +1,29 @@
+.beautify {
+  color: blue; }
+  .beautify input.filter {
+    width: 100%; }
+  .beautify pre, .beautify textarea {
+    width: 100%;
+    height: 1000px;
+    color: blue;
+    font-family: Consolas, monaco, monospace;
+    font-size: 13px; }
+  .beautify .row-div {
+    margin-top: 25px; }
+  .beautify .row-div-mini {
+    margin-top: 10px; }
+  .beautify .high-row {
+    height: 3em; }
+  .beautify .header-text {
+    text-align: center; }
+  .beautify .red {
+    color: red; }
+
+.tabs .tab {
+  margin-right: 15px; }
+.tabs input {
+  border: 1px solid; }
+.tabs .div-row-bottom {
+  margin-bottom: 25px; }
+
+/*# sourceMappingURL=app.css.map */
