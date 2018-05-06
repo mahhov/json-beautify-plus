@@ -3,12 +3,16 @@
     <body>
         <div class="container">
             <div class="tabs">
-                <button bind-for="pair in pairs" bind="pair.name" onclick="${setActivePair(pair)}"></button>
+                <span bind-for="pair in pairs" bind-use="tab with pair"></span>
+
                 <button class="tab-right" onclick="${createPair()}">+</button>
             </div>
             <textarea class="half" bind-elem="rawElem" onkeyup="${rawChanged()}" onchange="${rawChanged()}"></textarea>
             <pre class="half" bind="pretty"></pre>
         </div>
+
+        <!-- COMPONENTS -->
+        <button bind-component="tab with pair" bind="pair.name" onclick="${setActivePair(pair)}"></button>
     </body>
 
     <script type="module" src="controller.js"></script>
