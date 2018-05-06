@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "db-migrate up; node server.js",
-    "build": "[ -d build ] && rm -r build; cp -r src2 build; browserify src2/controller.js -o build/controller.js",
+    "build": "[ -d build ] && rm -r build; cp -r src2 build; browserify --debug src2/controller.js -o build/controller.js",
     "postinstall": "npm run build",
     "dev": "nodemon --watch src2 -e html,js --exec npm run build & http-server ./build -o -a localhost -c-1"
   },
