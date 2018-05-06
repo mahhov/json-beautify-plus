@@ -3,7 +3,8 @@
     <body>
         <div class="container">
             <div class="tabs">
-                
+                <button bind-for="pair in pairs" bind="pair.name" onclick="${setActivePair(pair)}"></button>
+                <button class="tab-right" onclick="${createPair()}">+</button>
             </div>
             <textarea class="half" bind-elem="rawElem" onkeyup="${rawChanged()}" onchange="${rawChanged()}"></textarea>
             <pre class="half" bind="pretty"></pre>

@@ -7,6 +7,10 @@ source.createPair = () => {
     source.pairs.push({name, raw: ''});
 };
 
+source.setActivePair = pair => {
+    source.activePair = pair;
+};
+
 source.rawChanged = () => {
     source.pretty = source.rawElem.value;
 };
