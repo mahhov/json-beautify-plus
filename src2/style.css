@@ -2,27 +2,34 @@
     height: 800px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 10fr;
+}
+
+.container > {
+    margin: 20px;
+}
+
+.tabs {
+    grid-row: span 1;
+    grid-column: span 2;
+    margin: 20px;
+}
+
+.half {
+    grid-row: span 1;
+    grid-column: span 1;
+    height: 800px;
+}
+
+pre, textarea {
+    color: blue;
+    font-family: Consolas, monaco, monospace;
+    font-size: 13px;
 }
 
 pre {
-    margin-top: 0;
-    margin-bottom: 0;
     white-space: pre-wrap;
     word-break: break-all;
     overflow-x: auto;
     overflow-y: auto;
-}
-
-.half {
-    grid-column: span 1;
-}
-
-pre, textarea {
-    height: 800px;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: blue;
-    font-family: Consolas, monaco, monospace;
-    font-size: 13px;
 }
