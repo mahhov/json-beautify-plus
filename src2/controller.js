@@ -6,6 +6,7 @@ source.createPair = () => {
     source.pairs.push(pair);
     source.setActivePair(pair);
     saveChanges();
+    source.rawElem.focus();
 };
 
 source.setActivePair = pair => {
