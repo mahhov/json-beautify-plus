@@ -1,8 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
     <body>
-        1
+        <div class="container">
+            <textarea class="half" bind-elem="rawElem" onkeyup="${rawChanged()}" onchange="${rawChanged()}"></textarea>
+            <pre class="half" bind="pretty"></pre>
+        </div>
     </body>
 
     <script type="module" src="controller.js"></script>
+
+    <style>
+        .container {
+            height: 800px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        pre {
+            margin-top: 0;
+            margin-bottom: 0;
+            white-space: pre-wrap;
+            word-break: break-all;
+            overflow-x: auto;
+            overflow-y: auto;
+        }
+
+        .half {
+            grid-column: span 1;
+        }
+
+        pre, textarea {
+            height: 800px;
+            margin-left: 20px;
+            margin-right: 20px;
+            color: blue;
+            font-family: Consolas, monaco, monospace;
+            font-size: 13px;
+        }
+    </style>
 </html>
