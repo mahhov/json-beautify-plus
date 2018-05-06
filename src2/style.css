@@ -1,0 +1,28 @@
+.container {
+    height: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.half {
+    grid-column: span 1;
+}
+
+pre, textarea {
+    height: 800px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: blue;
+    font-family: Consolas, monaco, monospace;
+    font-size: 13px;
+}
