@@ -31,7 +31,7 @@ source.deletePair = index => {
 
 source.editPairName = (buttonElem, pair) => {
     pair.edittingName = true;
-    let nameInputElem = buttonElem.parentNode.childNodes[3];
+    let nameInputElem = buttonElem.parentElement.childNodes[3]; // todo use children instead of childNodes
     nameInputElem.value = pair.name;
     nameInputElem.focus();
 };
@@ -80,6 +80,28 @@ let updatePretty = () => source.pretty = getActivePair().raw;
 let getActivePair = () => source.pairs[source.activePairIndex];
 
 let focus = () => source.rawElem.focus();
+
+source.dragPairStart = (event, index) => {
+    event.dataTransfer.setData("pair", index);
+    console.log('drag start');
+};
+
+source.dragPairOver = event => {
+    if (!event.dataTransfer.types.includes('pair'))
+        return;
+    event.dataTransfer.dropEffect = "move";
+    event.preventDefault();
+};
+
+source.dragPairEnd = event => {
+    let sourceIndex = event.dataTransfer.getData("pair");
+    let destination = event.path.find(pairElem => pairElem.getAttribute('draggable')).parentElement;
+    let destinationIndex = Array.prototype.indexOf.call(destination.parentElement.children, destination);
+    let sourcePair = source.pairs[sourceIndex];
+    source.pairs[sourceIndex] = source.pairs[destinationIndex];
+    source.pairs[destinationIndex] = sourcePair;
+    event.preventDefault();
+};
 
 source.init = () => {
     source.pairs = [];
