@@ -31,7 +31,7 @@ source.deletePair = index => {
 
 source.editPairName = (buttonElem, pair) => {
     pair.edittingName = true;
-    let nameInputElem = buttonElem.parentElement.childNodes[3]; // todo use children instead of childNodes
+    let nameInputElem = buttonElem.parentElement.children[1];
     nameInputElem.value = pair.name;
     nameInputElem.focus();
 };
@@ -111,8 +111,8 @@ source.init = () => {
 source.init();
 
 // todo
-// reorder
 // styling
 // json parse
 // save to localhost
 // unique names
+// reorder improve bugginess
