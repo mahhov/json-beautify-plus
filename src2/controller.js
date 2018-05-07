@@ -39,7 +39,7 @@ source.endEditPairName = (thiz, event, pair) => {
         return;
     pair.edittingName = false;
     pair.name = thiz.value;
-    // apply name change & save
+    saveChanges();
 };
 
 source.copy = () => {
@@ -64,12 +64,12 @@ let selectPretty = () => {
 };
 
 source.rawChanged = () => {
+    getActivePair().raw = source.rawElem.value;
     saveChanges();
     updatePretty();
 };
 
 let saveChanges = () => {
-    getActivePair().raw = source.rawElem.value;
     console.log('todo - save');
 };
 
@@ -87,7 +87,7 @@ source.init = () => {
 source.init();
 
 // todo
-// rename
 // reorder
 // styling
 // json parse
+// save to localhost
