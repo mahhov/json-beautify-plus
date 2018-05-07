@@ -1,20 +1,19 @@
 const source = require('bb-better-binding')(__dirname, document);
 
-// tabs
-
 source.createPair = () => {
     let name = source.pairs.length;
     let pair = {name, raw: ''};
     source.pairs.push(pair);
     source.setActivePairIndex(source.pairs.length - 1);
     saveChanges();
-    source.rawElem.focus();
+    focus();
 };
 
 source.setActivePairIndex = index => {
     source.activePairIndex = index;
     source.rawElem.value = getActivePair().raw;
     updatePretty();
+    focus();
 };
 
 source.deletePair = index => {
@@ -27,10 +26,20 @@ source.deletePair = index => {
         else if (source.activePairIndex > index)
             source.setActivePairIndex(source.activePairIndex - 1);
     }
-    source.rawElem.focus();
+    focus();
 };
 
-// copy button
+source.editPairName = (buttonElem, pair) => {
+    pair.edittingName = true;
+    buttonElem.parentNode.childNodes[3].focus();
+};
+
+source.endEditPairName = (pair, event) => {
+    if (event && event.key !== 'Enter')
+        return;
+    pair.edittingName = false;
+    // apply name change & save
+};
 
 source.copy = () => {
     navigator.clipboard.writeText(source.pretty).catch(() => {
@@ -40,7 +49,7 @@ source.copy = () => {
         } catch (error) {
         }
     });
-    source.rawElem.focus();
+    focus();
 };
 
 let selectPretty = () => {
@@ -48,12 +57,10 @@ let selectPretty = () => {
     if (!selection.isCollapsed)
         return;
     let range = window.document.createRange();
-    range.selectNodeContents(source.preElem);
+    range.selectNodeContents(source.prettyElem);
     selection.removeAllRanges();
     selection.addRange(range);
 };
-
-// change in text
 
 source.rawChanged = () => {
     saveChanges();
@@ -69,6 +76,8 @@ let updatePretty = () => source.pretty = getActivePair().raw;
 
 let getActivePair = () => source.pairs[source.activePairIndex];
 
+let focus = () => source.rawElem.focus();
+
 source.init = () => {
     source.pairs = [];
     source.createPair();
@@ -80,3 +89,4 @@ source.init();
 // rename
 // reorder
 // styling
+// json parse

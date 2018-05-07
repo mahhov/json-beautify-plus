@@ -16,12 +16,13 @@
             </div>
 
             <textarea class="half" bind-elem="rawElem" onkeyup="${rawChanged()}" onchange="${rawChanged()}"></textarea>
-            <pre class="half" bind-elem="preElem" bind="pretty"></pre>
+            <pre class="half" bind-elem="prettyElem" bind="pretty"></pre>
         </div>
 
         <!-- COMPONENTS -->
         <span bind-component="tab with pair index">
-            <button bind="pair.name" onclick="${setActivePairIndex(index)}"></button>
+            <button bind-if="${!(pair.edittingName)}" bind="pair.name" onclick="${setActivePairIndex(index)}" ondblclick="${editPairName(this, pair)}"></button>
+            <input bind-if="pair.edittingName" onblur="${endEditPairName(pair)}" onkeydown="${endEditPairName(pair, event)}"/>
             <button onclick="${deletePair(index)}">X</button>
         </span>
     </body>
