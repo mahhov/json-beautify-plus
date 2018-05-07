@@ -31,7 +31,9 @@ source.deletePair = index => {
 
 source.editPairName = (buttonElem, pair) => {
     pair.edittingName = true;
-    buttonElem.parentNode.childNodes[3].focus();
+    let nameInputElem = buttonElem.parentNode.childNodes[3];
+    nameInputElem.value = pair.name;
+    nameInputElem.focus();
 };
 
 source.endEditPairName = (thiz, event, pair) => {
@@ -91,3 +93,4 @@ source.init();
 // styling
 // json parse
 // save to localhost
+// unique names
