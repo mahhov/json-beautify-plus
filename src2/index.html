@@ -22,7 +22,7 @@
         <!-- COMPONENTS -->
         <span bind-component="tab with pair index">
             <button bind-if="${!(pair.edittingName)}" bind="pair.name" onclick="${setActivePairIndex(index)}" ondblclick="${editPairName(this, pair)}"></button>
-            <input bind-if="pair.edittingName" onblur="${endEditPairName(pair)}" onkeydown="${endEditPairName(pair, event)}"/>
+            <input bind-if="pair.edittingName" onblur="${endEditPairName(this, undefined, pair)}" onkeydown="${endEditPairName(this, event, pair)}"/>
             <button onclick="${deletePair(index)}">X</button>
         </span>
     </body>

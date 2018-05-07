@@ -34,10 +34,11 @@ source.editPairName = (buttonElem, pair) => {
     buttonElem.parentNode.childNodes[3].focus();
 };
 
-source.endEditPairName = (pair, event) => {
+source.endEditPairName = (thiz, event, pair) => {
     if (event && event.key !== 'Enter')
         return;
     pair.edittingName = false;
+    pair.name = thiz.value;
     // apply name change & save
 };
 
