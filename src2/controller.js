@@ -27,20 +27,20 @@ source.deletePair = index => {
         else if (source.activePairIndex > index)
             source.setActivePairIndex(source.activePairIndex - 1);
     }
+    source.rawElem.focus();
 };
 
 // ui
 
 source.copy = () => {
-    source.rawElem.select();
     navigator.clipboard.writeText(source.pretty).catch(() => {
         try {
-            console.log('2');
             selectPretty();
             document.execCommand('copy');
         } catch (error) {
         }
     });
+    source.rawElem.focus();
 };
 
 let selectPretty = () => {
@@ -48,7 +48,7 @@ let selectPretty = () => {
     if (!selection.isCollapsed)
         return;
     let range = window.document.createRange();
-    range.selectNodeContents(pre);
+    range.selectNodeContents(source.preElem);
     selection.removeAllRanges();
     selection.addRange(range);
 };

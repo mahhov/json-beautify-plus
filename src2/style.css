@@ -2,14 +2,12 @@
     height: 800px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50px 50px 50px 1fr;
-}
-
-.container > * {
-    margin: 20px;
+    grid-template-rows: auto auto auto 1fr;
 }
 
 .row {
+    margin-left: 10px;
+    margin-right: 10px;
     grid-row: span 1;
     grid-column: span 2;
 }
@@ -19,6 +17,7 @@
 }
 
 .half {
+    margin: 10px;
     grid-row: span 1;
     grid-column: span 1;
 }
