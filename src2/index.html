@@ -3,7 +3,7 @@
     <body>
         <div class="container">
             <div class="tabs">
-                <span bind-for="pair in pairs" bind-use="tab with pair"></span>
+                <span bind-for="pair in pairs" bind-use="tab with pair index"></span>
 
                 <button class="tab-right" onclick="${createPair()}">+</button>
             </div>
@@ -12,7 +12,10 @@
         </div>
 
         <!-- COMPONENTS -->
-        <button bind-component="tab with pair" bind="pair.name" onclick="${setActivePair(pair)}"></button>
+        <span bind-component="tab with pair index">
+            <button bind="pair.name" onclick="${setActivePairIndex(index)}"></button>
+            <button onclick="${deletePair(index)}">X</button>
+        </span>
     </body>
 
     <script type="module" src="controller.js"></script>

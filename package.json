@@ -10,7 +10,7 @@
     "dev": "nodemon --watch src2 -e html,js --exec npm run build & http-server ./build -o -a localhost -c-1"
   },
   "dependencies": {
-    "bb-better-binding": "^5.7.0",
+    "bb-better-binding": "^6.0.0",
     "db-migrate": "^0.10.2",
     "db-migrate-pg": "^0.2.5",
     "express": "~4.7.2",
