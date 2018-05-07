@@ -19,7 +19,7 @@ source.setActivePairIndex = index => {
 
 source.deletePair = index => {
     if (source.pairs.length === 1)
-        init();
+        source.init();
     else {
         source.pairs.splice(index, 1);
         if (source.activePairIndex === index)
@@ -30,7 +30,7 @@ source.deletePair = index => {
     source.rawElem.focus();
 };
 
-// ui
+// copy button
 
 source.copy = () => {
     navigator.clipboard.writeText(source.pretty).catch(() => {
@@ -69,15 +69,14 @@ let updatePretty = () => source.pretty = getActivePair().raw;
 
 let getActivePair = () => source.pairs[source.activePairIndex];
 
-let init = () => {
+source.init = () => {
     source.pairs = [];
     source.createPair();
     source.setActivePairIndex(0);
 };
-init();
+source.init();
 
 // todo
-// delete all button
 // rename
 // reorder
 // styling
