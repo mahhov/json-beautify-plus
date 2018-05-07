@@ -2,17 +2,16 @@
     height: 800px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 10fr;
+    grid-template-rows: 50px 50px 50px 1fr;
 }
 
 .container > * {
     margin: 20px;
 }
 
-.tabs {
+.row {
     grid-row: span 1;
     grid-column: span 2;
-    margin: 20px;
 }
 
 .tab-right {
@@ -22,7 +21,6 @@
 .half {
     grid-row: span 1;
     grid-column: span 1;
-    height: 800px;
 }
 
 pre, textarea {

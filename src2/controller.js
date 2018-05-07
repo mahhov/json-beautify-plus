@@ -29,6 +29,30 @@ source.deletePair = index => {
     }
 };
 
+// ui
+
+source.copy = () => {
+    source.rawElem.select();
+    navigator.clipboard.writeText(source.pretty).catch(() => {
+        try {
+            console.log('2');
+            selectPretty();
+            document.execCommand('copy');
+        } catch (error) {
+        }
+    });
+};
+
+let selectPretty = () => {
+    let selection = window.getSelection();
+    if (!selection.isCollapsed)
+        return;
+    let range = window.document.createRange();
+    range.selectNodeContents(pre);
+    selection.removeAllRanges();
+    selection.addRange(range);
+};
+
 // change in text
 
 source.rawChanged = () => {
@@ -52,4 +76,8 @@ let init = () => {
 };
 init();
 
-// todo focus text on load
+// todo
+// delete all button
+// rename
+// reorder
+// styling

@@ -2,11 +2,19 @@
 <html lang="en">
     <body>
         <div class="container">
-            <div class="tabs">
-                <span bind-for="pair in pairs" bind-use="tab with pair index"></span>
+            <div class="row">
+                <button onclick="">Delete All</button>
+            </div>
 
+            <div class="row">
+                <span bind-for="pair in pairs" bind-use="tab with pair index"></span>
                 <button class="tab-right" onclick="${createPair()}">+</button>
             </div>
+
+            <div class="row">
+                <button class="tab-right" onclick="${copy()}">Copy</button>
+            </div>
+
             <textarea class="half" bind-elem="rawElem" onkeyup="${rawChanged()}" onchange="${rawChanged()}"></textarea>
             <pre class="half" bind="pretty"></pre>
         </div>
