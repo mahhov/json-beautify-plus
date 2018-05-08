@@ -96,12 +96,15 @@ source.dragPairOver = event => {
 
 source.dragPairEnd = event => {
     let sourceIndex = event.dataTransfer.getData("pair");
-    let destination = event.path.find(pairElem => pairElem.getAttribute('draggable')).parentElement;
-    let destinationIndex = Array.prototype.indexOf.call(destination.parentElement.children, destination);
-    let sourcePair = source.pairs[sourceIndex];
-    source.pairs[sourceIndex] = source.pairs[destinationIndex]; // todo reorder not swap, and check bounds
-    source.pairs[destinationIndex] = sourcePair;
+    window.path = event.path;
+    let destinationChild = event.path.find(pathElem => pathElem.getAttribute && pathElem.getAttribute('draggable'));
+    let destinationIndex = destinationChild ? Array.prototype.indexOf.call(destinationChild.parentElement.parentElement.children, destinationChild.parentElement) : source.pairs.length - 1;
+    move(source.pairs, sourceIndex, destinationIndex);
     event.preventDefault();
+};
+
+let move = (array, from, to) => {
+    array.splice(to, 0, array.splice(from, 1)[0]);
 };
 
 source.init = () => {
