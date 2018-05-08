@@ -42,6 +42,7 @@ source.endEditPairName = (thiz, event, pair) => {
     pair.edittingName = false;
     pair.name = thiz.value;
     saveChanges();
+    focus();
 };
 
 source.copy = () => {
