@@ -90,15 +90,12 @@ source.dragPairStart = (event, index) => {
 source.dragPairOver = event => {
     if (!event.dataTransfer.types.includes('pair'))
         return;
-    event.dataTransfer.dropEffect = "move";
+    event.dataTransfer.dropEffect = 'move';
     event.preventDefault();
 };
 
-source.dragPairEnd = event => {
-    let sourceIndex = event.dataTransfer.getData("pair");
-    window.path = event.path;
-    let destinationChild = event.path.find(pathElem => pathElem.getAttribute && pathElem.getAttribute('draggable'));
-    let destinationIndex = destinationChild ? Array.prototype.indexOf.call(destinationChild.parentElement.parentElement.children, destinationChild.parentElement) : source.pairs.length - 1;
+source.dragPairEnd = (event, destinationIndex) => {
+    let sourceIndex = event.dataTransfer.getData('pair');
     move(source.pairs, sourceIndex, destinationIndex);
     event.preventDefault();
 };
@@ -120,3 +117,5 @@ source.init();
 // save to localhost
 // unique names
 // reorder improve bugginess
+// better drag styling
+// dragging to the end

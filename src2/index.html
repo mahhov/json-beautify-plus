@@ -6,7 +6,7 @@
                 <button onclick="${init()}">Delete All</button>
             </div>
 
-            <div class="row" ondragover="${dragPairOver(event)}" ondrop="${dragPairEnd(event)}">
+            <div class="row">
                 <span bind-for="pair in pairs" bind-use="tab with pair index"></span>
                 <button class="tab-right" onclick="${createPair()}">+</button>
             </div>
@@ -20,7 +20,11 @@
         </div>
 
         <!-- COMPONENTS -->
-        <span bind-component="tab with pair index" draggable="true" ondragstart="${dragPairStart(event, index)}">
+        <span bind-component="tab with pair index"
+              draggable="true"
+              ondragstart="${dragPairStart(event, index)}"
+              ondragover="${dragPairOver(event)}"
+              ondrop="${dragPairEnd(event, index)}">
             <button bind-if="${!(pair.edittingName)}" bind="pair.name" onclick="${setActivePairIndex(index)}" ondblclick="${editPairName(this, pair)}"></button>
             <input bind-if="pair.edittingName" onblur="${endEditPairName(this, undefined, pair)}" onkeydown="${endEditPairName(this, event, pair)}"/>
             <button onclick="${deletePair(index)}">X</button>
