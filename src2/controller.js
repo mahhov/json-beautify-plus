@@ -98,7 +98,7 @@ source.dragPairEnd = event => {
     let destination = event.path.find(pairElem => pairElem.getAttribute('draggable')).parentElement;
     let destinationIndex = Array.prototype.indexOf.call(destination.parentElement.children, destination);
     let sourcePair = source.pairs[sourceIndex];
-    source.pairs[sourceIndex] = source.pairs[destinationIndex];
+    source.pairs[sourceIndex] = source.pairs[destinationIndex]; // todo reorder not swap, and check bounds
     source.pairs[destinationIndex] = sourcePair;
     event.preventDefault();
 };

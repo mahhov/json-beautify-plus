@@ -1,3 +1,7 @@
+* {
+    font-family: Consolas, monaco, monospace;
+}
+
 .container {
     height: 800px;
     display: grid;
@@ -24,7 +28,6 @@
 
 pre, textarea {
     color: blue;
-    font-family: Consolas, monaco, monospace;
     font-size: 13px;
 }
 
@@ -33,4 +36,21 @@ pre {
     word-break: break-all;
     overflow-x: auto;
     overflow-y: auto;
+}
+
+button {
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background: lightskyblue;
+    color: white;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: deepskyblue;
+}
+
+button:active {
+    background: skyblue;
 }
