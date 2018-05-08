@@ -112,7 +112,6 @@ source.init = () => {
 source.init();
 
 // todo
-// styling
 // json parse
 // save to localhost
 // unique names

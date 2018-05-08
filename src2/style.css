@@ -48,9 +48,10 @@ button {
 }
 
 button:hover {
-    background: deepskyblue;
+    background: cornflowerblue;
 }
 
 button:active {
-    background: skyblue;
+    background: dodgerblue;
+    color: white;
 }
