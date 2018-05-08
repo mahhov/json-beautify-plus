@@ -25,8 +25,8 @@
               ondragstart="${dragPairStart(event, index)}"
               ondragover="${dragPairOver(event)}"
               ondrop="${dragPairEnd(event, index)}">
-            <button bind-if="${!(pair.edittingName)}" bind="pair.name" onclick="${setActivePairIndex(index)}" ondblclick="${editPairName(this, pair)}"></button>
-            <input bind-if="pair.edittingName" onblur="${endEditPairName(this, undefined, pair)}" onkeydown="${endEditPairName(this, event, pair)}"/>
+            <button bind-if="${!(pair.edittingName)}" bind="pair.name" onclick="${setActivePairIndex(index)}" ondblclick="${editPairName(pair, index)}"></button>
+            <input bind-elem="nameInputElem${index}" bind-if="pair.edittingName" onblur="${endEditPairName(this, undefined, pair)}" onkeydown="${endEditPairName(this, event, pair)}"/>
             <button onclick="${deletePair(index)}">X</button>
         </span>
     </body>

@@ -1,4 +1,4 @@
-const source = require('bb-better-binding')(__dirname, document);
+const source = require('bb-better-binding')(__dirname, document, window);
 
 source.createPair = () => {
     let name = source.pairs.length;
@@ -29,9 +29,9 @@ source.deletePair = index => {
     focus();
 };
 
-source.editPairName = (buttonElem, pair) => {
+source.editPairName = (pair, index) => {
     pair.edittingName = true;
-    let nameInputElem = buttonElem.parentElement.children[1];
+    let nameInputElem = source[`nameInputElem${index}`];
     nameInputElem.value = pair.name;
     nameInputElem.focus();
 };
@@ -119,3 +119,4 @@ source.init();
 // reorder improve bugginess
 // better drag styling
 // dragging to the end
+// filter
